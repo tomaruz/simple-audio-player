@@ -1,3 +1,66 @@
+console.log("hello world")
+const currentTime = document.getElementById('current-time');
+const totalTime = document.getElementById('total-time');
+const playPauseButton = document.getElementById('play-pause-button');
+const scrollBar = document.getElementById('scroll-bar');
+const audio = new Audio("audio/Soft-Background-for-Interview.webm");
+let isScrolling = false;
+//BUTTON LISTENER
+playPauseButton.onclick = function(){
+    if(audio.paused){
+        audio.play();
+    }else{
+        audio.pause();
+    }
+//AUDIO LISTENERS
+//AUDIO EVENT LISTENERS
+// event triggered once audio loaded
+}
+audio.oncanplaythrough = function(){
+    scrollBar.disabled = false;
+}
+
+// event triggered when audio plays
+audio.onplay = function(){
+    playPauseButton.src = "images/pause.svg"
+}
+
+//event triggered when audio is paused
+audio.onpause = function(){
+    playPauseButton.src = "images/play.svg"
+}
+
+//event triggered by meta data load
+audio.onloadedmetadata = function(){
+    totalTime.innerHTML = formatTime(audio.duration);
+    currentTime.innerHTML = formatTime(0);
+    scrollBar.innerHTML = Math.floor(audio.duration);
+}
+//event triggered when time updates
+audio.ontimeupdate = function(){
+    currentTime.innerHTML = formatTime(audio.currentTime);
+    if(!isScrolling){
+        scrollBar.value = Math.floor(audio.currentTime);
+    }
+}
+
+//event triggered when audio ends
+audio.onended = function(){
+    currentTime.innerHTML = formatTime(0);
+    scrollBar.value = 0;
+    playPauseButton.src = "images/play.svg";
+}
+
+// SCROLL BAR LISTENER
+// event triggered on interaction with seek bar
+scrollBar.oninput = function(){
+    isScrolling = true;
+}
+
+scrollBar.onchange = function(){
+    audio.currentTime = scrollBar.value;
+}
+//UTILITY FUNCTIONS
 // takes total seconds (number) and returns a formatted string 
 function formatTime(secs) {
     let hours = Math.floor(secs / 3600);
