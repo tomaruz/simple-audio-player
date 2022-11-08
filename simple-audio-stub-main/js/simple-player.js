@@ -4,7 +4,7 @@ const totalTime = document.getElementById('total-time');
 const playPauseButton = document.getElementById('play-pause-button');
 const scrollBar = document.getElementById('scroll-bar');
 const volumeSlider = document.getElementById('volume-slider');
-const audio = new Audio("audio/Soft-Background-for-Interview.webm");
+const audio = new Audio("audio/Soft-Background-for-Interview.webm", "audio/Hey There - half.cool.mp3", "audio/It Was a Time - TrackTribe.mp3", "audio/Mulholland - King Canyon.mp3");
 let isScrolling = false;
 //BUTTON LISTENER
 playPauseButton.onclick = function(){
@@ -62,9 +62,9 @@ scrollBar.onchange = function(){
     audio.currentTime = scrollBar.value;
 }
 
-// working audio control
-volumeSlider.addEventListener('input', (e) => {
-    const value = e.target.value;
+// working audio control, event information being past to the function
+volumeSlider.addEventListener('input', (event) => {
+    const value = event.target.value;
 // have to devide by 100 because it can only be from 0 to 1
     audio.volume = value / 100;
 });

@@ -10,17 +10,58 @@ h4{
     user-select: none;
     padding-bottom: 2px;
 }
+
+#images-container{
+    width: 876px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+#image{
+/*resizing pictures so all are the same size*/
+    width: 210px;
+    height: 210px;
+/*preventing images from stretching*/
+    object-fit: cover;
+    padding: 3px;
+    border-radius: 10px;
+    transition: filter .3s ease-in-out;
+    filter: grayscale(100%);
+}
+
+#image:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+#image:active {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
 #container{
-    width: 330px;
+    width: 876px;
     height: 50px;
     background-color: rgb(203, 158, 255);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #play-pause-button{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#audio-on-button{
     width: 20px;
     height: 20px;
     cursor: pointer;
