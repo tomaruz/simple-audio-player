@@ -3,6 +3,7 @@ const currentTime = document.getElementById('current-time');
 const totalTime = document.getElementById('total-time');
 const playPauseButton = document.getElementById('play-pause-button');
 const scrollBar = document.getElementById('scroll-bar');
+const volumeSlider = document.getElementById('volume-slider');
 const audio = new Audio("audio/Soft-Background-for-Interview.webm");
 let isScrolling = false;
 //BUTTON LISTENER
@@ -60,6 +61,14 @@ scrollBar.oninput = function(){
 scrollBar.onchange = function(){
     audio.currentTime = scrollBar.value;
 }
+
+// working audio control
+volumeSlider.addEventListener('input', (e) => {
+    const value = e.target.value;
+// have to devide by 100 because it can only be from 0 to 1
+    audio.volume = value / 100;
+});
+
 //UTILITY FUNCTIONS
 // takes total seconds (number) and returns a formatted string 
 function formatTime(secs) {
