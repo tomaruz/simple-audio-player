@@ -1,9 +1,8 @@
-*
-body{
-    background-color:rgb(98, 0, 209);
+* body {
+    background-color: rgb(98, 0, 209);
 }
 
-h4{
+h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: 50;
@@ -11,49 +10,70 @@ h4{
     padding-bottom: 2px;
 }
 
-#images-container{
+/*#mega-container {
+    background-color: rgba(240, 248, 255, 0.226);
+    width: 876px;
+    height: 270px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}*/
+
+#images-container {
     width: 876px;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
+    padding-top: 250px;
 }
 
-#image{
-/*resizing pictures so all are the same size*/
+.image {
+    /*resizing pictures so all are the same size*/
     width: 210px;
     height: 210px;
-/*preventing images from stretching*/
+    /*preventing images from stretching*/
     object-fit: cover;
-    padding: 3px;
     border-radius: 10px;
     transition: filter .3s ease-in-out;
     filter: grayscale(100%);
 }
 
-#image:hover {
+.image:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+    box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
 }
 
-#image:active {
+.image:active {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+    box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
 }
 
-#container{
+.activeimage {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
+}
+
+#container {
     width: 876px;
     height: 50px;
-    background-color: rgb(203, 158, 255);
+    background-color: rgb(237, 158, 255);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 20px 30px 0 rgba(206, 163, 255, 0.616);
 }
 
-#play-pause-button{
+#play-pause-button {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -61,7 +81,7 @@ h4{
     padding-right: 10px;
 }
 
-#audio-on-button{
+#audio-on-button {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -69,22 +89,22 @@ h4{
     padding-right: 10px;
 }
 
-#current-time{
+#current-time {
     width: 45px;
     padding-left: 5px;
 }
 
-#time-divider{
+#time-divider {
     padding-left: 3px;
 }
 
-#total-time{
+#total-time {
     width: 45px;
     padding-left: 10px;
 }
 
-#scroll-bar{
-    width: 140px;
+#scroll-bar {
+    width: 300px;
     cursor: pointer;
     margin-left: 10px;
 }
