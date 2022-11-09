@@ -1,34 +1,34 @@
 * body {
-    background-color: rgb(98, 0, 209);
+    background-color: rgb(69, 1, 147);
 }
 
-h4 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*
+p {
     font-size: 20px;
-    font-weight: 50;
-    user-select: none;
-    padding-bottom: 2px;
-}
-
-/*#mega-container {
-    background-color: rgba(240, 248, 255, 0.226);
-    width: 876px;
-    height: 270px;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    border-radius: 10px;
-    padding: 20px;
+    line-height: 30px;
+    display: block;
+    margin-inline-start: 4px;
 }*/
 
+h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: 50;
+    user-select: none;
+    padding-bottom: 1px;
+}
+
 #images-container {
+    /*to distrube the content inside the fbox equaly, I wrote the first two lines of code*/
+    display: flex;
+    justify-content: space-between;
     width: 876px;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 20px;
     padding-bottom: 10px;
-    padding-top: 250px;
+    margin-top: 70px;
 }
 
 .image {
@@ -60,32 +60,59 @@ h4 {
     box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
 }
 
+/*
+#song-info-container {
+    width: 876px;
+    height: 70px;
+    background-color:  rgb(237, 158, 255);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px 10px 0px 0px;
+
+}*/
+
 #container {
     width: 876px;
     height: 50px;
     background-color: rgb(237, 158, 255);
-    border-radius: 10px;
+    border-radius: 10px 10px 10px 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 20px 30px 0 rgba(206, 163, 255, 0.616);
+    box-shadow: 0 12px 20px 0 rgba(206, 163, 255, 0.616);
+}
+
+#volume-bar-container {
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    width: 240px;
+    height: 30px;
+    border-radius: 10px 10px 10px 10px; 
+    background-color: rgba(241 182 255);
+}
+
+#volume-slider {
+    width: 180px;
+    height: 10px;
 }
 
 #play-pause-button {
     width: 20px;
-    height: 20px;
+    height: 23px;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 18px;
     padding-right: 10px;
 }
 
 #audio-on-button {
     width: 20px;
     height: 20px;
+    opacity: 70%;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-right: 10px;
 }
 
@@ -94,17 +121,36 @@ h4 {
     padding-left: 5px;
 }
 
-#time-divider {
-    padding-left: 3px;
-}
-
 #total-time {
     width: 45px;
-    padding-left: 10px;
+    padding-right: 120px;
+    padding-left: 15px;
 }
 
 #scroll-bar {
-    width: 300px;
+    width: 340px;
     cursor: pointer;
-    margin-left: 10px;
+}
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 10px;
+      -webkit-appearance: none;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+    }
+
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: pointer;
+      background: rgb(77, 77, 77);
+      border-radius: 100%;
+      box-shadow: -305px 0px 0 300px rgb(6, 255, 255);
+    }
+
 }

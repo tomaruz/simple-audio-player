@@ -9,7 +9,7 @@ const image1 = document.getElementById("image1");
 const image2 = document.getElementById("image2");
 const image3 = document.getElementById("image3");
 const image4 = document.getElementById("image4");
-const imagearray = [image1, image2, image3, image4]
+const imagearray = [image1, image2, image3, image4];
 
 let isScrolling = false;
 //BUTTON LISTENER
