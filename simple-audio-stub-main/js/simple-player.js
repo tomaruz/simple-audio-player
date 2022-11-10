@@ -11,6 +11,11 @@ const image3 = document.getElementById("image3");
 const image4 = document.getElementById("image4");
 const imagearray = [image1, image2, image3, image4];
 
+//when page reloaded image is already selected with it is track
+window.addEventListener("load", () =>{imageonclick(image1);
+console.log("dfdsdfs")});
+
+
 let isScrolling = false;
 //BUTTON LISTENER
 playPauseButton.onclick = function () {
@@ -23,6 +28,7 @@ playPauseButton.onclick = function () {
     //AUDIO EVENT LISTENERS
     // event triggered once audio loaded
 }
+
 audio.oncanplaythrough = function () {
     scrollBar.disabled = false;
 }
@@ -31,6 +37,7 @@ function imageonclick(image) {
     for (let i = 0; i < imagearray.length; i++) {
         if (imagearray[i] == image) {
             imagearray[i].classList.add("activeimage")
+           
         }
         else {
             imagearray[i].classList.remove("activeimage")
@@ -131,4 +138,5 @@ function formatTime(secs) {
     } else {
         return minutes + ":" + seconds;
     }
+
 }

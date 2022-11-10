@@ -43,14 +43,11 @@ h4 {
 }
 
 .image:hover {
+    will-change: transform;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
-    box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
-}
-
-.image:active {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
+    transform: scale(1.03);
+    transition: all 0.2s;
     box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
 }
 
@@ -58,6 +55,8 @@ h4 {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
     box-shadow: -4px -4px 30px 0 rgb(206 163 255 / 62%);
+    transform: scale(1.03);
+    transition: all 0.2s;
 }
 
 /*
@@ -86,11 +85,11 @@ h4 {
 
 #volume-bar-container {
     display: flex;
-    justify-content:left;
+    justify-content: left;
     align-items: center;
     width: 240px;
     height: 30px;
-    border-radius: 10px 10px 10px 10px; 
+    border-radius: 10px 10px 10px 10px;
     background-color: rgba(241 182 255);
 }
 
@@ -135,22 +134,22 @@ h4 {
 /*Chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type='range'] {
-      overflow: hidden;
-      width: 10px;
-      -webkit-appearance: none;
-      background-color: rgb(255, 255, 255);
-      border-radius: 10px;
+        overflow: hidden;
+        width: 10px;
+        -webkit-appearance: none;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
     }
 
-    
+
     input[type='range']::-webkit-slider-thumb {
-      width: 10px;
-      -webkit-appearance: none;
-      height: 10px;
-      cursor: pointer;
-      background: rgb(77, 77, 77);
-      border-radius: 100%;
-      box-shadow: -305px 0px 0 300px rgb(6, 255, 255);
+        width: 10px;
+        -webkit-appearance: none;
+        height: 10px;
+        cursor: pointer;
+        background: rgb(77, 77, 77);
+        border-radius: 100%;
+        box-shadow: -305px 0px 0 300px rgb(6, 255, 255);
     }
 
 }
