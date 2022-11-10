@@ -2,6 +2,7 @@ console.log("hello world")
 const currentTime = document.getElementById('current-time');
 const totalTime = document.getElementById('total-time');
 const playPauseButton = document.getElementById('play-pause-button');
+const audioOnButton = document.getElementById('audio-on-button');
 const scrollBar = document.getElementById('scroll-bar');
 const volumeSlider = document.getElementById('volume-slider');
 const audio = new Audio("audio/Soft-Background-for-Interview.webm");
@@ -13,21 +14,28 @@ const imagearray = [image1, image2, image3, image4];
 
 //when page reloaded image is already selected with it is track
 window.addEventListener("load", () =>{imageonclick(image1);
-console.log("dfdsdfs")});
+}, playPauseButton.src = "images/play.svg");
 
+let isPlaying = false;
 
 let isScrolling = false;
 //BUTTON LISTENER
+
 playPauseButton.onclick = function () {
+    // console.log("on click is playing = " + isPlaying) 
     if (audio.paused) {
         audio.play();
-    } else {
+        // isPlaying = true;
+    } 
+    else {
         audio.pause();
+        // isPlaying = false;
     }
     //AUDIO LISTENERS
     //AUDIO EVENT LISTENERS
     // event triggered once audio loaded
 }
+
 
 audio.oncanplaythrough = function () {
     scrollBar.disabled = false;
@@ -46,27 +54,35 @@ function imageonclick(image) {
 }
 
 image1.onclick = function () {
+    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Soft-Background-for-Interview.webm"
-    playPauseButton.src = "images/play.svg"
+    playPauseButton.src = "images/pause.svg"
     imageonclick(image1)
+    audio.play()
 }
 
 image2.onclick = function () {
+    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Hey There - half.cool.mp3"
-    playPauseButton.src = "images/play.svg"
+    playPauseButton.src = "images/pause.svg"
     imageonclick(image2)
+    audio.play()
 }
 
 image3.onclick = function () {
+    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/It Was a Time - TrackTribe.mp3"
-    playPauseButton.src = "images/play.svg"
+    playPauseButton.src = "images/pause.svg"
     imageonclick(image3)
+    audio.play()
 }
 
 image4.onclick = function () {
+    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Mulholland - King Canyon.mp3"
-    playPauseButton.src = "images/play.svg"
+    playPauseButton.src = "images/pause.svg"
     imageonclick(image4)
+    audio.play()
 }
 
 // event triggered when audio plays
@@ -81,9 +97,14 @@ audio.onpause = function () {
 
 //event triggered by meta data load
 audio.onloadedmetadata = function () {
+    // console.log("is playing = " + isPlaying) 
     totalTime.innerHTML = formatTime(audio.duration);
     currentTime.innerHTML = formatTime(0);
     scrollBar.innerHTML = Math.floor(audio.duration);
+    if (isPlaying) {
+        audio.play()
+        // isPlaying = false
+    }
 }
 //event triggered when time updates
 audio.ontimeupdate = function () {
@@ -98,6 +119,7 @@ audio.onended = function () {
     currentTime.innerHTML = formatTime(0);
     scrollBar.value = 0;
     playPauseButton.src = "images/play.svg";
+    // isPlaying = false;
 }
 
 // SCROLL BAR LISTENER
@@ -117,6 +139,7 @@ volumeSlider.addEventListener('input', (event) => {
     // have to devide by 100 because it can only be from 0 to 1
     audio.volume = value / 100;
 });
+
 
 //UTILITY FUNCTIONS
 // takes total seconds (number) and returns a formatted string 
