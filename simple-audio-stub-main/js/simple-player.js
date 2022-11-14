@@ -10,6 +10,7 @@ const image1 = document.getElementById("image1");
 const image2 = document.getElementById("image2");
 const image3 = document.getElementById("image3");
 const image4 = document.getElementById("image4");
+//images array
 const imagearray = [image1, image2, image3, image4];
 
 //when page reloaded image is already selected with it is track
@@ -19,8 +20,8 @@ window.addEventListener("load", () => {
 
 let isPlaying = false;
 let isScrolling = false;
-//BUTTON LISTENER
 
+//BUTTON LISTENER
 playPauseButton.onclick = function () {
     if (audio.paused) {
         audio.play();
@@ -31,12 +32,6 @@ playPauseButton.onclick = function () {
 
 }
 
-// audioOnButton.addEventListener = function () {
-//     if (volumeSlider.range.value > 1) {
-//         audioOnButton.src = "images/no-volume.png";
-// }
-// }
-
 //AUDIO LISTENERS
 //AUDIO EVENT LISTENERS
 // event triggered once audio loaded
@@ -44,6 +39,8 @@ audio.oncanplaythrough = function () {
     scrollBar.disabled = false;
 }
 
+
+//function looks for a right image to sound
 function imageonclick(image) {
     for (let i = 0; i < imagearray.length; i++) {
         if (imagearray[i] == image) {
@@ -57,28 +54,24 @@ function imageonclick(image) {
 }
 
 image1.onclick = function () {
-    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Lazy Walk - Cheel.mp3"
     imageonclick(image1)
     audio.play()
 }
 
 image2.onclick = function () {
-    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Classic Mariachi - Jimena Contreras.mp3"
     imageonclick(image2)
     audio.play()
 }
 
 image3.onclick = function () {
-    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/Walking in the Sky - Nico Staf.mp3"
     imageonclick(image3)
     audio.play()
 }
 
 image4.onclick = function () {
-    // console.log("is playing = " + isPlaying) 
     audio.src = "audio/In Memory of Jean Talon - Mini Vandals.mp3"
     imageonclick(image4)
     audio.play()
@@ -93,7 +86,6 @@ audio.onplay = function () {
 audio.onpause = function () {
     playPauseButton.src = "images/play.svg"
 }
-
 
 //event triggered by metadata load 
 audio.onloadedmetadata = function () {
@@ -115,7 +107,6 @@ audio.onended = function () {
     currentTime.innerHTML = formatTime(0);
     scrollBar.value = 0;
     playPauseButton.src = "images/play.svg";
-    // isPlaying = false;
 }
 
 // SCROLL BAR LISTENER
@@ -144,12 +135,11 @@ volumeSlider.addEventListener('input', (event) => {
     }
 });
 
-//when click on the volume icon, turns the sound off
+//when click on the volume icon, switches to no volume icon and sound turns off
 audioOnButton.onclick = function () {
-    if (audioOnButton.src = "images/volume-off.png") {
-        volumeSlider.value = 0;
-        audio.volume = 0;
-    }
+    audioOnButton.src = "images/volume-off.png"
+    volumeSlider.value = 0;
+    audio.volume = 0;
 }
 
 

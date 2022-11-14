@@ -2,14 +2,6 @@
     background-color: rgb(69, 1, 147);
 }
 
-/*
-p {
-    font-size: 20px;
-    line-height: 30px;
-    display: block;
-    margin-inline-start: 4px;
-}*/
-
 h4 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
@@ -19,7 +11,7 @@ h4 {
 }
 
 #images-container {
-    /*to distrube the content inside the fbox equaly, I wrote the first two lines of code*/
+    /*to distrube the content inside the flex box equaly, I wrote the first two lines of code*/
     display: flex;
     justify-content: space-between;
     width: 876px;
@@ -37,6 +29,7 @@ h4 {
     height: 210px;
     /*preventing images from stretching*/
     object-fit: cover;
+    /* rounding image corners */
     border-radius: 10px;
     transition: filter .3s ease-in-out;
     filter: grayscale(100%);
@@ -58,17 +51,6 @@ h4 {
     transition: all 0.2s;
 }
 
-/*
-#song-info-container {
-    width: 876px;
-    height: 70px;
-    background-color:  rgb(237, 158, 255);
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px 10px 0px 0px;
-
-}*/
-
 #container {
     width: 876px;
     height: 50px;
@@ -82,27 +64,37 @@ h4 {
     box-shadow: 0 12px 20px 0 rgba(206, 163, 255, 0.616);
 }
 
-#volume-bar-container {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: 240px;
-    height: 30px;
-    border-radius: 10px 10px 10px 10px;
-    background-color: rgba(241 182 255);
-}
-
-#volume-slider {
-    width: 180px;
-    height: 10px;
-}
-
 #play-pause-button {
     width: 20px;
     height: 23px;
     cursor: pointer;
     padding-left: 18px;
     padding-right: 10px;
+}
+
+#current-time {
+    width: 45px;
+    padding-left: 5px;
+}
+
+#scroll-bar {
+    width: 340px;
+    cursor: pointer;
+}
+
+#total-time {
+    width: 45px;
+    padding-right: 120px;
+    padding-left: 15px;
+}
+
+#volume-bar-container {
+    display: flex;
+    align-items: center;
+    width: 240px;
+    height: 30px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(241 182 255);
 }
 
 #audio-on-button {
@@ -114,23 +106,14 @@ h4 {
     padding-right: 10px;
 }
 
-#current-time {
-    width: 45px;
-    padding-left: 5px;
+#volume-slider {
+    width: 180px;
+    height: 10px;
 }
 
-#total-time {
-    width: 45px;
-    padding-right: 120px;
-    padding-left: 15px;
-}
+/*Chrome
+customising my sliders*/
 
-#scroll-bar {
-    width: 340px;
-    cursor: pointer;
-}
-
-/*Chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type='range'] {
         overflow: hidden;
@@ -183,6 +166,7 @@ h4 {
         height: 140px;
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 20px;
     }
 
 
@@ -214,8 +198,6 @@ h4 {
         display: flex;
         width: 404px;
         height: 45px;
-        border-radius: 10px 10px 10px 10px;
-        background-color: rgba(241 182 255);
         margin-top: 5px;
         margin-bottom: 20px;
         margin-left: 18px;
